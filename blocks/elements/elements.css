@@ -1,0 +1,27 @@
+.elements{
+    margin-top: 48px;
+    margin-bottom: 66px;
+
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
+    grid-column-gap: 18px;
+    grid-row-gap: 21px;
+}
+
+@media all and (max-width: 900px) {
+    .elements{
+        padding-left: 19px;
+        padding-right: 19px;
+    }
+}
+
+@media all and (max-width: 425px) {
+    .elements{
+        margin-top: 36px;
+        margin-bottom: 48px;
+        grid-row-gap: 20px;
+    }
+}
+
+

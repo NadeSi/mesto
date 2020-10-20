@@ -1,0 +1,22 @@
+.profile__description{
+    font-family: Inter, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+
+    margin: 0;
+}
+
+@media all and (max-width: 690px) {
+    .profile__description{
+        text-align: center;
+    }
+}
+
+@media all and (max-width: 425px) {
+    .profile__description{
+        font-size: 14px;
+        line-height: 17px;
+    }
+}

@@ -1,0 +1,31 @@
+.button__close{
+    --button-size: 40px;
+
+    width: var(--button-size);
+    height: var(--button-size);
+
+    background-image: url("../../../images/close-icon.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-color: transparent;
+    transform: translate(calc(var(--container-padding-top) + var(--button-size)), calc(-1 * (var(--container-padding-top) + var(--button-size))));
+    float: right;
+    border: none;
+}
+
+.button__close:hover{
+    background-image: url("../../../images/close-icon-hover.svg");
+}
+
+@media all and (max-width: 500px) {
+    .button__close{
+        transform: translate(var(--container-padding-top), calc(-1 * (var(--container-padding-top) + 13px + var(--button-size))));
+    }
+}
+
+@media all and (max-width: 430px) {
+    .button__close{
+        --button-size: 26px;
+    }
+}

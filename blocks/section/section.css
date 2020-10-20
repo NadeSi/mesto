@@ -1,0 +1,10 @@
+.section{
+    max-width: 882px;
+    margin: auto;
+}
+
+@media all and (max-width: 320px) {
+    .section{
+        max-width: 320px;
+    }
+}

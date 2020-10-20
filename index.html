@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Проектная работа №3 Яндекс.Практикум">
+    <meta name="author" content="Силаева Надежда">
+    <link rel="stylesheet" href="pages/index.css">
+
+    <title>Mesto</title>
+</head>
+<body>
+<div class="page">
+    <header class="header section">
+        <img class="header__logo" src="images/vector.svg" alt="Логотип заголовка">
+        <div class="header__line"></div>
+    </header>
+    <main>
+        <section class="profile section">
+            <div class="profile__avatar"></div>
+            <section class="profile__info">
+                <p class="profile__name">Жак-Ив Кусто</p>
+                <p class="profile__description">Исследователь океана</p>
+                <button class="button button__edit"></button>
+            </section>
+            <button class="button button__add"></button>
+        </section>
+        <section class="elements section">
+            <div class="element">
+                <img class="element__img" src="images/elements/karachaevsk.jpg" alt="Фотография Карачаевск">
+                <div class="element__group">
+                    <p class="element__text">Карачаевск</p>
+                    <button class="element__like"></button>
+                </div>
+            </div>
+            <div class="element">
+                <img class="element__img" src="images/elements/elbrus.jpg" alt="Фотография Гора Эльбрус">
+                <div class="element__group">
+                    <p class="element__text">Гора Эльбрус</p>
+                    <button class="element__like"></button>
+                </div>
+            </div>
+            <div class="element">
+                <img class="element__img" src="images/elements/dombay.jpg" alt="Фотография Домбай">
+                <div class="element__group">
+                    <p class="element__text">Домбай</p>
+                    <button class="element__like"></button>
+                </div>
+            </div>
+            <div class="element">
+                <img class="element__img" src="images/elements/elbrus.jpg" alt="Фотография Гора Эльбрус">
+                <div class="element__group">
+                    <p class="element__text">Гора Эльбрус</p>
+                    <button class="element__like"></button>
+                </div>
+            </div>
+            <div class="element">
+                <img class="element__img" src="images/elements/dombay.jpg" alt="Фотография Домбай">
+                <div class="element__group">
+                    <p class="element__text">Домбай</p>
+                    <button class="element__like"></button>
+                </div>
+            </div>
+            <div class="element">
+                <img class="element__img" src="images/elements/karachaevsk.jpg" alt="Фотография Карачаевск">
+                <div class="element__group">
+                    <p class="element__text">Карачаево-Черкессия</p>
+                    <button class="element__like"></button>
+                </div>
+            </div>
+        </section>
+        <div class="popup">
+            <form class="popup__container">
+                <button class="button button__close"></button>
+                <h2 class="popup__header">Редактировать профиль</h2>
+                <input class="input input_field_name" type="text">
+                <input class="input input_field_description" type="text">
+                <button class="button button__submit" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </main>
+    <footer class="footer section">
+        <p class="footer__text">© 2020 Mesto Russia</p>
+    </footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

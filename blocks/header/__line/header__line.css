@@ -1,0 +1,13 @@
+.header__line{
+    height: 1px;
+    opacity: 0.7;
+    background: #545454;
+
+    margin: 40px 0 40px;
+}
+
+@media all and (max-width: 425px) {
+    .header__line{
+        margin: 31px 0 38px;
+    }
+}

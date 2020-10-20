@@ -1,0 +1,16 @@
+.footer{
+    padding-bottom: 60px;
+}
+
+@media all and (max-width: 900px) {
+    .footer{
+        padding-left: 19px;
+        padding-right: 19px;
+    }
+}
+
+@media all and (max-width: 425px) {
+    .footer{
+        padding-bottom: 36px;
+    }
+}

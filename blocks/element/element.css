@@ -1,0 +1,10 @@
+.element{
+    max-width: 282px;
+    min-height: 361px;
+    background-color: var(--white-color);
+    color: var(--black-color);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+

@@ -1,0 +1,24 @@
+.popup__container{
+    --container-padding-top: 34px;
+
+    max-width: 430px;
+    max-height: 330px;
+
+    padding: var(--container-padding-top) 36px 36px;
+    box-sizing: border-box;
+
+    background-color: var(--white-color);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+
+    margin: calc(50vh - 165px) auto;
+}
+
+@media all and (max-width: 430px) {
+    .popup__container{
+        --container-padding-top: 25px;
+        max-width: 282px;
+        max-height: 322px;
+        padding: 25px 22px;
+    }
+}

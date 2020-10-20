@@ -1,0 +1,13 @@
+.element__like{
+    width: 20px;
+    height: 18px;
+
+    border: none;
+    outline: none;
+
+    background-color: inherit;
+    background-image: url("../../../images/like-icon.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
