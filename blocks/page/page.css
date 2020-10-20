@@ -9,10 +9,8 @@
 
     background: var(--black-color);
     color: var(--white-color);
-
     font-family: Inter, Helvetica, sans-serif;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-
     min-width: 320px;
 }
