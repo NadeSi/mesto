@@ -1,4 +1,4 @@
-.button__submit{
+.button_type_submit{
     width: 100%;
     height: 50px;
 
@@ -9,12 +9,12 @@
     margin-top: 48px;
 }
 
-.button__submit:hover{
+.button_type_submit:hover{
     background-color: rgba(0, 0, 0, 0.8);
 }
 
 @media all and (max-width: 430px) {
-    .button__submit{
+    .button_type_submit{
         margin-top: 45px;
     }
 }

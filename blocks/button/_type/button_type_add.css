@@ -1,4 +1,4 @@
-.button__add{
+.button_type_add{
     align-self: center;
 
     min-width: 150px;
@@ -14,12 +14,12 @@
     background-size: auto;
 }
 
-.button__add:hover{
+.button_type_add:hover{
     background-image: url("../../../images/add-icon-hover.svg");
 }
 
 @media all and (max-width: 690px) {
-    .button__add{
+    .button_type_add{
         width: 100%;
     }
 }

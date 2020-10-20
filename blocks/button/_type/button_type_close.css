@@ -1,4 +1,4 @@
-.button__close{
+.button_type_close{
     --button-size: 40px;
 
     width: var(--button-size);
@@ -14,18 +14,18 @@
     border: none;
 }
 
-.button__close:hover{
+.button_type_close:hover{
     background-image: url("../../../images/close-icon-hover.svg");
 }
 
 @media all and (max-width: 500px) {
-    .button__close{
+    .button_type_close{
         transform: translate(var(--container-padding-top), calc(-1 * (var(--container-padding-top) + 13px + var(--button-size))));
     }
 }
 
 @media all and (max-width: 430px) {
-    .button__close{
+    .button_type_close{
         --button-size: 26px;
     }
 }
