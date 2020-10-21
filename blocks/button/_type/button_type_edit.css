@@ -13,6 +13,9 @@
     background-size: auto;
 }
 
-.button_type_edit:hover{
-    background-image: url("../../../images/edit-icon-hover.svg");
+@media all and (max-width: 425px) {
+    .button_type_edit{
+        width: 18px;
+        height: 18px;
+    }
 }

@@ -2,11 +2,10 @@
     outline: none;
     border: 1px solid var(--white-color);
     box-sizing: border-box;
-
     background-color: transparent;
 }
 
 .button:hover{
     cursor: pointer;
-    border-color: rgba(255, 255, 255, 0.6);
+    opacity: .6;
 }

@@ -7,6 +7,11 @@
 
     margin: 0;
     margin-bottom: 16px;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 318px;
 }
 
 @media all and (max-width: 690px) {
@@ -19,5 +24,6 @@
 @media all and (max-width: 425px) {
     .profile__name{
         font-size: 27px;
+        max-width: 240px;
     }
 }

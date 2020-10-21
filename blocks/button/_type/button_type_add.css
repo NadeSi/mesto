@@ -14,10 +14,6 @@
     background-size: auto;
 }
 
-.button_type_add:hover{
-    background-image: url("../../../images/add-icon-hover.svg");
-}
-
 @media all and (max-width: 690px) {
     .button_type_add{
         width: 100%;

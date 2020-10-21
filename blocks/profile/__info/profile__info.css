@@ -6,6 +6,7 @@
     grid-template-columns: max-content;
     column-gap: 17px;
     align-content: center;
+    max-width: calc(100vw - 40px);
 }
 
 @media all and (max-width: 690px) {
