@@ -14,8 +14,8 @@ function fillPopupContainer() {
 }
 
 function openPopup() {
-    popupElement.classList.add('popup_opened');
     fillPopupContainer();
+    popupElement.classList.add('popup_opened');
 }
 
 function closePopup() {
