@@ -1,0 +1,4 @@
+.view-card__button-close{
+    transform: translate(calc(var(--button-size)), 0);
+    align-self: flex-end;
+}
