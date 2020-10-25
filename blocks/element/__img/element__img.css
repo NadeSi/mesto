@@ -1,4 +1,12 @@
 .element__img{
     width: 282px;
     height: 282px;
+
+    min-width: 282px;
+    min-height: 282px;
+    background-color: #80808075;
+}
+
+.element__img:hover{
+    cursor: pointer;
 }
