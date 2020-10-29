@@ -1,7 +1,7 @@
 .popup__container{
     --container-padding-top: 34px;
 
-    max-width: 430px;
+    min-width: 430px;
 
     justify-self: center;
     align-self: center;
@@ -17,7 +17,7 @@
 @media all and (max-width: 430px) {
     .popup__container{
         --container-padding-top: 25px;
-        max-width: 282px;
+        min-width: 282px;
         max-height: 322px;
         padding: 25px 22px;
     }

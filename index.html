@@ -30,21 +30,33 @@
         <p class="footer__text">© 2020 Mesto Russia</p>
     </footer>
     <div class="popup popup_type_edit-profile">
-        <form class="popup__container" name="popup-edit-profile">
+        <form class="popup__container popup__form" name="popup-edit-profile">
             <button class="button button_type_close" type="button"></button>
             <h2 class="popup__header">Редактировать профиль</h2>
-            <input class="popup__input popup__input_field_name" type="text" name="edit-profile-name" required placeholder="Имя">
-            <input class="popup__input popup__input_field_description" type="text" name="edit-profile-description" required placeholder="Описание">
+            <div class="popup__element">
+                <input class="popup__input popup__input_field_name" type="text" name="edit-profile-name" required placeholder="Имя" minlength="2" maxlength="40">
+                <span class='popup__input-error' id='edit-profile-name-error'></span>
+            </div>
+            <div class="popup__element">
+                <input class="popup__input popup__input_field_description" type="text" name="edit-profile-description" required placeholder="О себе" minlength="2" maxlength="200">
+                <span class='popup__input-error' id='edit-profile-description-error'></span>
+            </div>
             <button class="button button_type_submit" type="submit">Сохранить</button>
         </form>
     </div>
     <div class="popup popup_type_add-card">
-        <form class="popup__container" name="popup-add-card">
+        <form class="popup__container popup__form" name="popup-add-card">
             <button class="button button_type_close" type="button"></button>
             <h2 class="popup__header">Новое место</h2>
-            <input class="popup__input popup__input_field_name" type="text" name="add-card-name" required placeholder="Название">
-            <input class="popup__input popup__input_field_url" type="text" name="add-card-url" required placeholder="Ссылка на картинку">
-            <button class="button button_type_submit" type="submit">Сохранить</button>
+            <div class="popup__element">
+                <input class="popup__input popup__input_field_name" type="text" name="add-card-name" required placeholder="Название" minlength="2" maxlength="30">
+                <span class='popup__input-error' id='add-card-name-error'></span>
+            </div>
+            <div class="popup__element">
+                <input class="popup__input popup__input_field_url" type="url" name="add-card-url" required placeholder="Ссылка на картинку">
+                <span class='popup__input-error' id='add-card-url-error'></span>
+            </div>
+            <button class="button button_type_submit button_disabled" type="submit">Сохранить</button>
         </form>
     </div>
     <div class="popup popup_type_view-card">
@@ -66,6 +78,7 @@
     </template>
 </div>
 <script src="script/initialCards.js" type="module"></script>
+<script src="script/validate.js" type="module"></script>
 <script src="script/script.js" type="module"></script>
 </body>
 </html>
