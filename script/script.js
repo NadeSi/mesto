@@ -1,14 +1,7 @@
-import {initialCards} from './initialCards.js';
-import {enableValidation, hideInputError} from './validate.js';
+import {initialCards, validationParameters} from './constants.js';
+import {enableValidation, cleanInputErrors} from './validate.js';
 
-const validationParameters = {
-    formSelector: '.popup__form',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.button_type_submit',
-    inactiveButtonClass: 'button_disabled',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__input-error_active'
-};
+debugger;
 
 const buttonEditElement = document.querySelector('.button_type_edit');
 const buttonAddCardElement = document.querySelector('.button_type_add');
@@ -57,8 +50,9 @@ function fillViewCardPopupContainer(popupElement, event) {
     const currentImgElement = event.target;
     const currentTextElement = event.target.nextElementSibling.querySelector('.element__text');
 
-    popupElement.querySelector('.view-card__img').src = currentImgElement.src;
-    popupElement.querySelector('.view-card__img').alt = currentImgElement.alt;
+    const img = popupElement.querySelector('.view-card__img');
+    img.src = currentImgElement.src;
+    img.alt = currentImgElement.alt;
 
     popupElement.querySelector('.view-card__text').textContent = currentTextElement.textContent;
 }
@@ -66,15 +60,6 @@ function fillViewCardPopupContainer(popupElement, event) {
 function cleanAddFormContainer() {
     inputCardName.value = '';
     inputCardUrl.value = '';
-}
-
-function cleanInputErrors(popupElement){
-    const {formSelector, inputSelector, inputErrorClass, errorClass} = validationParameters;
-    const form = popupElement.querySelector(formSelector);
-    if(form) {
-        const inputList = form.querySelectorAll(inputSelector);
-        inputList.forEach(inputElement => hideInputError(form, inputElement, {inputErrorClass, errorClass}));
-    }
 }
 
 function openPopup(popupElement) {
@@ -88,17 +73,17 @@ function closePopup(popupElement) {
     cleanInputErrors(popupElement);
 }
 
-function buttonEditElementCallback() {
+function handleButtonEditElement() {
     fillEditProfilePopupContainer();
     openPopup(popupEditProfileElement);
 }
 
-function buttonAddCardElementCallback() {
+function handleButtonAddCardElement() {
     cleanAddFormContainer();
     openPopup(popupAddCardElement);
 }
 
-function formAddSubmitHandler(evt) {
+function handleFormAddSubmit(evt) {
     evt.preventDefault();
     addNewCard(inputCardName.value, inputCardUrl.value);
 
@@ -106,7 +91,7 @@ function formAddSubmitHandler(evt) {
 }
 
 
-function formEditSubmitHandler(evt) {
+function handleFormEditSubmit(evt) {
     evt.preventDefault();
     profileName.textContent = inputName.value;
     profileDescription.textContent = inputDescription.value;
@@ -114,10 +99,10 @@ function formEditSubmitHandler(evt) {
     closePopup(popupEditProfileElement);
 }
 
-function crateCard(text, imgUrl) {
+function createCard(text, imgUrl) {
     const cardElement = cardTemplate.cloneNode(true);
 
-    const onClickImgCallback = function (event) {
+    const handleImgClick = function (event) {
         fillViewCardPopupContainer(popupViewCardElement, event);
         openPopup(popupViewCardElement)
     };
@@ -126,7 +111,7 @@ function crateCard(text, imgUrl) {
         const img = cardElement.querySelector('.element__img');
         img.src = imgUrl;
         img.alt = text;
-        img.addEventListener('click', onClickImgCallback);
+        img.addEventListener('click', handleImgClick);
     }
 
     cardElement.querySelector('.element__text').textContent = text;
@@ -145,7 +130,7 @@ function crateCard(text, imgUrl) {
 }
 
 function addNewCard(text, imgUrl) {
-    cardListElement.prepend(crateCard(text, imgUrl));
+    cardListElement.prepend(createCard(text, imgUrl));
 }
 
 function initCardList() {
@@ -157,15 +142,15 @@ initCardList();
 enableValidation(validationParameters);
 
 /*.popup-edit-profile*/
-popupEditProfileElement.addEventListener('submit', formEditSubmitHandler);
+popupEditProfileElement.addEventListener('submit', handleFormEditSubmit);
 popupEditProfileElement.addEventListener('click', handleMisclick);
-buttonEditElement.addEventListener('click', buttonEditElementCallback);
+buttonEditElement.addEventListener('click', handleButtonEditElement);
 buttonClosePopupEditProfileElement.addEventListener('click', () => closePopup(popupEditProfileElement));
 
 /*.popup_type_add-card*/
-popupAddCardElement.addEventListener('submit', formAddSubmitHandler);
+popupAddCardElement.addEventListener('submit', handleFormAddSubmit);
 popupAddCardElement.addEventListener('click', handleMisclick);
-buttonAddCardElement.addEventListener('click', buttonAddCardElementCallback);
+buttonAddCardElement.addEventListener('click', handleButtonAddCardElement);
 buttonClosePopupAddCardElement.addEventListener('click', () => closePopup(popupAddCardElement));
 
 /*.popup_type_view-card*/

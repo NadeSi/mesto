@@ -1,3 +1,4 @@
+import {validationParameters} from "./constants.js";
 
 const hasInvalidInput = (inputList) => inputList.some((inputElement) => {
     return !inputElement.validity.valid;
@@ -21,7 +22,7 @@ const showInputError = (formElement, inputElement, mapSelectors, errorMessage) =
     errorElement.classList.add(errorClass);
 };
 
-export const hideInputError = (formElement, inputElement, mapSelectors) => {
+const hideInputError = (formElement, inputElement, mapSelectors) => {
     const {inputErrorClass, errorClass} = mapSelectors;
     const errorElement = formElement.querySelector(`#${inputElement.name}-error`);
     inputElement.classList.remove(inputErrorClass);
@@ -30,10 +31,10 @@ export const hideInputError = (formElement, inputElement, mapSelectors) => {
 };
 
 const checkInputValidity = (formElement, inputElement, mapSelectors) => {
-    if (!inputElement.validity.valid) {
-        showInputError(formElement, inputElement, mapSelectors, inputElement.validationMessage);
-    } else {
+    if (inputElement.validity.valid) {
         hideInputError(formElement, inputElement, mapSelectors);
+    } else {
+        showInputError(formElement, inputElement, mapSelectors, inputElement.validationMessage);
     }
 };
 
@@ -51,6 +52,15 @@ const setEventListeners = (formElement, mapSelectors) => {
         });
     });
 };
+
+export function cleanInputErrors(popupElement){
+    const {formSelector, inputSelector, inputErrorClass, errorClass} = validationParameters;
+    const form = popupElement.querySelector(formSelector);
+    if(form) {
+        const inputList = form.querySelectorAll(inputSelector);
+        inputList.forEach(inputElement => hideInputError(form, inputElement, {inputErrorClass, errorClass}));
+    }
+}
 
 export const enableValidation = (mapSelectors) => {
     // const {formSelector, inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass} = mapSelectors;
