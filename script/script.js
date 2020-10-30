@@ -1,8 +1,6 @@
 import {initialCards, validationParameters} from './constants.js';
 import {enableValidation, cleanInputErrors} from './validate.js';
 
-debugger;
-
 const buttonEditElement = document.querySelector('.button_type_edit');
 const buttonAddCardElement = document.querySelector('.button_type_add');
 
@@ -70,7 +68,7 @@ function openPopup(popupElement) {
 function closePopup(popupElement) {
     document.removeEventListener('keydown', handleKeyEscape);
     popupElement && popupElement.classList.remove('popup_opened');
-    cleanInputErrors(popupElement);
+    cleanInputErrors(popupElement, validationParameters);
 }
 
 function handleButtonEditElement() {
@@ -104,7 +102,7 @@ function createCard(text, imgUrl) {
 
     const handleImgClick = function (event) {
         fillViewCardPopupContainer(popupViewCardElement, event);
-        openPopup(popupViewCardElement)
+        openPopup(popupViewCardElement);
     };
 
     if (imgUrl) {

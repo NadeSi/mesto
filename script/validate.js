@@ -1,5 +1,3 @@
-import {validationParameters} from "./constants.js";
-
 const hasInvalidInput = (inputList) => inputList.some((inputElement) => {
     return !inputElement.validity.valid;
 });
@@ -53,7 +51,7 @@ const setEventListeners = (formElement, mapSelectors) => {
     });
 };
 
-export function cleanInputErrors(popupElement){
+export const cleanInputErrors = (popupElement, validationParameters) => {
     const {formSelector, inputSelector, inputErrorClass, errorClass} = validationParameters;
     const form = popupElement.querySelector(formSelector);
     if(form) {
