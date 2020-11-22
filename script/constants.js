@@ -1,3 +1,5 @@
+export const CARD_TEMPLATE_SELECTOR = '#template-card';
+
 export const initialCards = [
     {
         name: 'Архыз',
