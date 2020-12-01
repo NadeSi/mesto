@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Проектная работа №3 Яндекс.Практикум">
     <meta name="author" content="Силаева Надежда">
-    <link rel="stylesheet" href="pages/index.css">
 
     <title>Mesto</title>
 </head>
 <body>
 <div class="page">
     <header class="header section">
-        <img class="header__logo" src="images/vector.svg" alt="Логотип заголовка">
+        <img class="header__logo" src="<%=require('./images/vector.svg')%>" alt="Логотип заголовка">
     </header>
     <main>
         <section class="profile section">
-            <div class="profile__avatar" style="background-image: url('images/avatar.jpg');"></div>
+            <div class="profile__avatar"></div>
             <div class="profile__info">
                 <h1 class="profile__name">Жак-Ив Кусто</h1>
                 <button class="button button_type_edit" type="button"></button>
@@ -77,6 +76,5 @@
         </div>
     </template>
 </div>
-<script src="script/index.js" type="module"></script>
 </body>
 </html>
