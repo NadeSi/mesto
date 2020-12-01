@@ -1,12 +1,13 @@
 export default class FormValidator {
-    constructor(mapSelectors, formElement) {
+    constructor(mapSelectors, formElementId) {
         //this._formSelector = mapSelectors.formSelector;
         this._inputSelector = mapSelectors.inputSelector;
         this._submitButtonSelector = mapSelectors.submitButtonSelector;
         this._inactiveButtonClass = mapSelectors.inactiveButtonClass;
         this._inputErrorClass = mapSelectors.inputErrorClass;
         this._errorClass = mapSelectors.errorClass;
-        this._formElement = formElement;
+        this._formElement = document.querySelector(formElementId);
+        this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
     }
 
     _hasInvalidInput() {
@@ -53,7 +54,6 @@ export default class FormValidator {
     };
 
     _setEventListeners(){
-        this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
         this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
 
         this._toggleButtonState();
@@ -64,6 +64,13 @@ export default class FormValidator {
             });
         });
     };
+
+    cleanInputs() {
+        this._inputList.forEach((inputElement) => {
+            inputElement.value = '';
+            this._hideInputError(inputElement);
+        });
+    }
 
     enableValidation() {
         this._setEventListeners();

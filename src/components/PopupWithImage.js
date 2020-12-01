@@ -5,15 +5,12 @@ export default class PopupWithImage extends Popup{
         super(popupSelector);
     }
 
-    open(event){
-        const currentImgElement = event.target;
-        const currentTextElement = event.target.nextElementSibling.querySelector('.element__text');
-
+    open({text, imgUrl}){
         const img = this._popupElement.querySelector('.view-card__img');
-        img.src = currentImgElement.src;
-        img.alt = currentImgElement.alt;
+        img.src = imgUrl;
+        img.alt = text;
 
-        this._popupElement.querySelector('.view-card__text').textContent = currentTextElement.textContent;
+        this._popupElement.querySelector('.view-card__text').textContent = text;
         super.open();
     }
 

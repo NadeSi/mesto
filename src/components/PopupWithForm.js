@@ -1,5 +1,4 @@
 import Popup from "./Popup";
-import {validationParameters} from '../utils/constants.js';
 
 export default class PopupWithForm extends Popup {
     constructor(popupSelector, submitCallBack) {
@@ -23,28 +22,12 @@ export default class PopupWithForm extends Popup {
         return inputValues;
     }
 
-    _cleanInputs() {
-        this._inputList.forEach((inputElement) => {
-            inputElement.value = '';
-
-            const errorElement = this._popupElement.querySelector(`#${inputElement.name}-error`);
-            inputElement.classList.remove(validationParameters.inputErrorClass);
-            errorElement.classList.remove(validationParameters.errorClass);
-            errorElement.textContent = '';
-        });
-    }
-
     setEventListeners() {
         super.setEventListeners();
         this._popupElement.addEventListener('submit', (event) => {
             event.preventDefault();
             this._submitCallBack(event, this._getInputValues())
         });
-    }
-
-    close() {
-        this._cleanInputs();
-        super.close();
     }
 
 }

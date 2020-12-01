@@ -7,18 +7,18 @@ export default class Card {
         this._handleCardClick = handleCardClick;
     }
 
-    _handleLikeClick(event) {
-        const element = event.target;
+    _handleLikeClick() {
+        const element = this._element.querySelector('.element__like');
         element.classList.toggle('element__like_active');
     };
 
-    _handleDeleteBtnClick(event) {
-        const element = event.target;
-        element.parentElement.remove();
+    _handleDeleteBtnClick() {
+        this._element.remove();
+        this._element = null;
     };
 
     _getTemplate() {
-        return document.querySelector(this._cardSelector).content.cloneNode(true);
+        return document.querySelector(this._cardSelector).content.querySelector('.element').cloneNode(true);
     };
 
     generateCard() {

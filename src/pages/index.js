@@ -34,12 +34,12 @@ const popupEditProfile = new PopupWithForm(popupSelectors.editProfile, handleFor
 const popupAddCard = new PopupWithForm(popupSelectors.addCard, handleFormAddSubmit);
 const popupViewCard = new PopupWithImage(popupSelectors.viewCard);
 
+const formValidationEditProfile = new FormValidator(validationParameters, '#popup-edit-profile');
+const formValidationAddCard = new FormValidator(validationParameters, '#popup-add-card');
+
 function init() {
     cardList.renderItems();
     setElementListeners();
-
-    //fillEditProfilePopupContainer();
-    initValidation(validationParameters);
 }
 
 function setElementListeners() {
@@ -48,9 +48,7 @@ function setElementListeners() {
     popupViewCard.setEventListeners();
 
     buttonEditElement.addEventListener('click', handleButtonEditElement);
-    buttonAddCardElement.addEventListener('click', (event) => {
-        popupAddCard.open(event)
-    });
+    buttonAddCardElement.addEventListener('click', handleButtonAddCardElement);
 }
 
 function handleFormEditSubmit(event, inputValues) {
@@ -68,8 +66,8 @@ function handleFormAddSubmit(event, inputValues) {
 }
 
 function addNewCard(text, imgUrl) {
-    const card = new Card({text, imgUrl}, CARD_TEMPLATE_SELECTOR, (event) => {
-        popupViewCard.open(event)
+    const card = new Card({text, imgUrl}, CARD_TEMPLATE_SELECTOR, () => {
+        popupViewCard.open({text, imgUrl})
     });
     cardList.addItem(card.generateCard(), false);
 }
@@ -84,17 +82,16 @@ function fillEditProfilePopupContainer() {
 }
 
 function handleButtonEditElement() {
+    formValidationEditProfile.cleanInputs();
     fillEditProfilePopupContainer();
+    formValidationEditProfile.enableValidation();
     popupEditProfile.open();
 }
 
-function initValidation(mapSelectors) {
-    const formList = Array.from(document.querySelectorAll(mapSelectors.formSelector));
-
-    formList.forEach((formElement) => {
-        const formElementValidation = new FormValidator(mapSelectors, formElement);
-        formElementValidation.enableValidation();
-    });
+function handleButtonAddCardElement() {
+    formValidationAddCard.cleanInputs();
+    formValidationAddCard.enableValidation();
+    popupAddCard.open()
 }
 
 
