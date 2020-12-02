@@ -40,6 +40,7 @@ const formValidationAddCard = new FormValidator(validationParameters, '#popup-ad
 function init() {
     cardList.renderItems();
     setElementListeners();
+    initValidation();
 }
 
 function setElementListeners() {
@@ -49,6 +50,11 @@ function setElementListeners() {
 
     buttonEditElement.addEventListener('click', handleButtonEditElement);
     buttonAddCardElement.addEventListener('click', handleButtonAddCardElement);
+}
+
+function initValidation() {
+    formValidationEditProfile.enableValidation();
+    formValidationAddCard.enableValidation();
 }
 
 function handleFormEditSubmit(event, inputValues) {
@@ -84,13 +90,13 @@ function fillEditProfilePopupContainer() {
 function handleButtonEditElement() {
     formValidationEditProfile.cleanInputs();
     fillEditProfilePopupContainer();
-    formValidationEditProfile.enableValidation();
+    formValidationEditProfile.toggleButtonState();
     popupEditProfile.open();
 }
 
 function handleButtonAddCardElement() {
     formValidationAddCard.cleanInputs();
-    formValidationAddCard.enableValidation();
+    formValidationAddCard.toggleButtonState();
     popupAddCard.open()
 }
 
