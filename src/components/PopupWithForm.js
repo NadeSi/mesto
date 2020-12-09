@@ -5,6 +5,11 @@ export default class PopupWithForm extends Popup {
         super(popupSelector);
         this._submitCallBack = submitCallBack;
         this._inputList = Array.from(this._popupElement.querySelectorAll('.popup__input'));
+        this._buttonSubmit = this._popupElement.querySelector('.button_type_submit')
+    }
+
+    setSubmitButtonText(text){
+        this._buttonSubmit.textContent = text;
     }
 
     setInputValues(inputValues) {

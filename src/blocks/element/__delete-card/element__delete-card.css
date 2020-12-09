@@ -1,4 +1,5 @@
 .element__delete-card{
+    display: none;
     position: absolute;
     top: 18px;
     right: 15px;

@@ -15,7 +15,9 @@
     </header>
     <main>
         <section class="profile section">
-            <div class="profile__avatar"></div>
+            <div class="profile__avatar" id="profile__avatar">
+                <button class="button button_type_edit-avatar" type="button"></button>
+            </div>
             <div class="profile__info">
                 <h1 class="profile__name">Жак-Ив Кусто</h1>
                 <button class="button button_type_edit" type="button"></button>
@@ -28,6 +30,17 @@
     <footer class="footer section">
         <p class="footer__text">© 2020 Mesto Russia</p>
     </footer>
+    <div class="popup popup_type_edit-avatar">
+        <form class="popup__container popup__form" name="popup-edit-avatar" id="popup-edit-avatar">
+            <button class="button button_type_close" type="button"></button>
+            <h2 class="popup__header">Обновить аватар</h2>
+            <div class="popup__element">
+                <input class="popup__input popup__input_field_url" type="url" name="edit-avatar-url" required placeholder="Ссылка на аватар">
+                <span class='popup__input-error' id='edit-avatar-url-error'></span>
+            </div>
+            <button class="button button_type_submit" type="submit">Сохранить</button>
+        </form>
+    </div>
     <div class="popup popup_type_edit-profile">
         <form class="popup__container popup__form" name="popup-edit-profile" id="popup-edit-profile">
             <button class="button button_type_close" type="button"></button>
@@ -65,13 +78,23 @@
             <p class="view-card__text"></p>
         </div>
     </div>
+    <div class="popup popup_type_delete-card">
+        <form class="popup__container delete-card">
+            <button class="button button_type_close" type="button"></button>
+            <h2 class="popup__header">Вы уверены?</h2>
+            <button class="button button_type_submit button_margin_none" type="submit">Да</button>
+        </form>
+    </div>
     <template id="template-card">
         <div class="element">
             <button class="button element__delete-card" type="button"></button>
             <img class="element__img" src="https://unsplash.com/photos/L5HG3CH_pgc" alt="Шаблон карточки">
             <div class="element__group">
                 <h2 class="element__text"></h2>
-                <button class="button element__like" type="button"></button>
+                <div class="element__like-group">
+                    <button class="button element__like" type="button"></button>
+                    <p class="element__like-count"></p>
+                </div>
             </div>
         </div>
     </template>

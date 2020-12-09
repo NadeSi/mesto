@@ -2,14 +2,17 @@ export const CARD_TEMPLATE_SELECTOR = '#template-card';
 export const CARD_LIST_SELECTOR = '.elements';
 
 export const popupSelectors = {
+    editAvatar: '.popup_type_edit-avatar',
     editProfile: '.popup_type_edit-profile',
     addCard: '.popup_type_add-card',
-    viewCard: '.popup_type_view-card'
+    viewCard: '.popup_type_view-card',
+    deleteCard: '.popup_type_delete-card'
 };
 
 export const userInfoSelectors = {
     userNameSelector: '.profile__name',
-    userDescriptionSelector: '.profile__description'
+    userDescriptionSelector: '.profile__description',
+    userAvatarId: 'profile__avatar',
 };
 
 export const initialCards = [
