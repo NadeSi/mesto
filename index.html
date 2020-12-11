@@ -1,43 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="Проектная работа №3 Яндекс.Практикум">
     <meta name="author" content="Силаева Надежда">
-
     <title>Mesto</title>
+    <link href="/mesto/main.css" rel="stylesheet">
 </head>
 <body>
 <div class="page">
-    <header class="header section">
-        <img class="header__logo" src="<%=require('./images/vector.svg')%>" alt="Логотип заголовка">
-    </header>
+    <header class="header section"><img class="header__logo" src="/mesto/8724261e3ec75cb48258.svg"
+                                        alt="Логотип заголовка"></header>
     <main>
         <section class="profile section">
             <div class="profile__avatar" id="profile__avatar">
                 <button class="button button_type_edit-avatar" type="button"></button>
             </div>
-            <div class="profile__info">
-                <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <div class="profile__info"><h1 class="profile__name">Жак-Ив Кусто</h1>
                 <button class="button button_type_edit" type="button"></button>
-                <p class="profile__description">Исследователь океана</p>
-            </div>
+                <p class="profile__description">Исследователь океана</p></div>
             <button class="button button_type_add" type="button"></button>
         </section>
         <section class="elements section"></section>
     </main>
-    <footer class="footer section">
-        <p class="footer__text">© 2020 Mesto Russia</p>
-    </footer>
+    <footer class="footer section"><p class="footer__text">© 2020 Mesto Russia</p></footer>
     <div class="popup popup_type_edit-avatar">
         <form class="popup__container popup__form" name="popup-edit-avatar" id="popup-edit-avatar">
             <button class="button button_type_close" type="button"></button>
             <h2 class="popup__header">Обновить аватар</h2>
-            <div class="popup__element">
-                <input class="popup__input popup__input_field_url" type="url" name="edit-avatar-url" required placeholder="Ссылка на аватар">
-                <span class='popup__input-error' id='edit-avatar-url-error'></span>
-            </div>
+            <div class="popup__element"><input class="popup__input popup__input_field_url" type="url"
+                                               name="edit-avatar-url" required placeholder="Ссылка на аватар"> <span
+                    class="popup__input-error" id="edit-avatar-url-error"></span></div>
             <button class="button button_type_submit" type="submit">Сохранить</button>
         </form>
     </div>
@@ -45,13 +39,13 @@
         <form class="popup__container popup__form" name="popup-edit-profile" id="popup-edit-profile">
             <button class="button button_type_close" type="button"></button>
             <h2 class="popup__header">Редактировать профиль</h2>
-            <div class="popup__element">
-                <input class="popup__input popup__input_field_name" type="text" name="edit-profile-name" required placeholder="Имя" minlength="2" maxlength="40">
-                <span class='popup__input-error' id='edit-profile-name-error'></span>
-            </div>
-            <div class="popup__element">
-                <input class="popup__input popup__input_field_description" type="text" name="edit-profile-description" required placeholder="О себе" minlength="2" maxlength="200">
-                <span class='popup__input-error' id='edit-profile-description-error'></span>
+            <div class="popup__element"><input class="popup__input popup__input_field_name" name="edit-profile-name"
+                                               required placeholder="Имя" minlength="2" maxlength="40"> <span
+                    class="popup__input-error" id="edit-profile-name-error"></span></div>
+            <div class="popup__element"><input class="popup__input popup__input_field_description"
+                                               name="edit-profile-description" required placeholder="О себе"
+                                               minlength="2" maxlength="200"> <span class="popup__input-error"
+                                                                                    id="edit-profile-description-error"></span>
             </div>
             <button class="button button_type_submit" type="submit">Сохранить</button>
         </form>
@@ -60,14 +54,12 @@
         <form class="popup__container popup__form" name="popup-add-card" id="popup-add-card">
             <button class="button button_type_close" type="button"></button>
             <h2 class="popup__header">Новое место</h2>
-            <div class="popup__element">
-                <input class="popup__input popup__input_field_name" type="text" name="add-card-name" required placeholder="Название" minlength="2" maxlength="30">
-                <span class='popup__input-error' id='add-card-name-error'></span>
-            </div>
-            <div class="popup__element">
-                <input class="popup__input popup__input_field_url" type="url" name="add-card-url" required placeholder="Ссылка на картинку">
-                <span class='popup__input-error' id='add-card-url-error'></span>
-            </div>
+            <div class="popup__element"><input class="popup__input popup__input_field_name" name="add-card-name"
+                                               required placeholder="Название" minlength="2" maxlength="30"> <span
+                    class="popup__input-error" id="add-card-name-error"></span></div>
+            <div class="popup__element"><input class="popup__input popup__input_field_url" type="url"
+                                               name="add-card-url" required placeholder="Ссылка на картинку"> <span
+                    class="popup__input-error" id="add-card-url-error"></span></div>
             <button class="button button_type_submit button_disabled" type="submit">Сохранить</button>
         </form>
     </div>
@@ -75,8 +67,7 @@
         <div class="popup__container view-card">
             <button class="button button_type_close view-card__button-close" type="button"></button>
             <img class="view-card__img" src="https://unsplash.com/photos/L5HG3CH_pgc" alt="Шаблон карточки">
-            <p class="view-card__text"></p>
-        </div>
+            <p class="view-card__text"></p></div>
     </div>
     <div class="popup popup_type_delete-card">
         <form class="popup__container delete-card">
@@ -89,15 +80,14 @@
         <div class="element">
             <button class="button element__delete-card" type="button"></button>
             <img class="element__img" src="https://unsplash.com/photos/L5HG3CH_pgc" alt="Шаблон карточки">
-            <div class="element__group">
-                <h2 class="element__text"></h2>
+            <div class="element__group"><h2 class="element__text"></h2>
                 <div class="element__like-group">
                     <button class="button element__like" type="button"></button>
-                    <p class="element__like-count"></p>
-                </div>
+                    <p class="element__like-count"></p></div>
             </div>
         </div>
     </template>
 </div>
+<script src="/mesto/main.js"></script>
 </body>
 </html>
