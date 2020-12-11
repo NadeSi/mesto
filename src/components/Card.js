@@ -8,10 +8,13 @@ export default class Card {
         this._likes = data.likes;
         this._owner = data.owner;
 
-        this._handleCardClick = handleCardClick;
-        this._handleCardDelete = handleCardDelete;
-        this._handleCardLike = handleCardLike;
-        this._handleCardLikeDelete = handleCardLikeDelete;
+        this._handleCardClick = handleCardClick.bind(this);
+        this._handleCardDelete = handleCardDelete.bind(this);
+        this._handleCardLike = handleCardLike.bind(this);
+        this._handleCardLikeDelete = handleCardLikeDelete.bind(this);
+
+        this._handleLikeClick = this._handleLikeClick.bind(this);
+        this._handleDeleteBtnClick = this._handleDeleteBtnClick.bind(this);
     }
 
     _handleLikeClick() {
@@ -46,7 +49,8 @@ export default class Card {
             const img = this._element.querySelector('.element__img');
             img.src = this._imgUrl;
             img.alt = this._text;
-            img.addEventListener('click', this._handleCardClick.bind(this));
+            //img.addEventListener('click', this._handleCardClick.bind(this));
+            img.addEventListener('click', this._handleCardClick);
         }
 
         if (this._likes) {
@@ -58,13 +62,13 @@ export default class Card {
         }
 
         this._element.querySelector('.element__text').textContent = this._text;
-        this._element.querySelector('.element__like').addEventListener('click', this._handleLikeClick.bind(this));
+        this._element.querySelector('.element__like').addEventListener('click', this._handleLikeClick);
 
         if (this._owner && this._owner._id === currentUserId) {
             const deleteBtn = this._element.querySelector('.element__delete-card');
 
             deleteBtn.classList.add('element__delete-card_visible');
-            deleteBtn.addEventListener('click', () => this._handleCardDelete(this._id, this._handleDeleteBtnClick.bind(this)));
+            deleteBtn.addEventListener('click', () => this._handleCardDelete(this._id, this._handleDeleteBtnClick));
         }
 
         return this._element;
